@@ -1,0 +1,4 @@
+interface:
+  display_name: "AstrBot 插件开发"
+  short_description: "按 AstraBot 规范设计、实现、测试和整理插件"
+  default_prompt: "请按 AstraBot 插件开发规范完成这个插件任务，并在修改前检查当前版本文档与源码。"
