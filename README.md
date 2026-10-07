@@ -1,8 +1,8 @@
-# 基于 AstrBot 的插件开发 Skill（中文）
+# 基于 AstrBot 的插件开发 Skill
 
-这是一个面向中文开发者和大模型的 Codex Skill，用于开发、审查、测试、打包和维护 [AstrBot](https://github.com/AstrBotDevs/AstrBot) 插件。
+用于开发、审查、测试、打包和维护 [AstrBot](https://github.com/AstrBotDevs/AstrBot) 插件的 Codex Skill。
 
-它采用渐进式读取：简单插件只读取核心规则和消息模块；只有在需求涉及对应能力时，才读取 LLM、Agent、互动会话、WebUI、国际化或市场发布模块。
+采用渐进式读取：简单插件只读取核心规则和消息模块；只有在需求涉及对应能力时，才读取 LLM、Agent、互动会话、WebUI、国际化或市场发布模块。
 
 ## 适用范围
 
