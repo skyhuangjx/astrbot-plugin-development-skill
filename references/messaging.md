@@ -16,9 +16,11 @@
 - 钩子、会话等待器和后台任务中使用 `await event.send(...)`，不要错误地使用 `yield`。
 - 主动消息使用 `context.send_message(unified_msg_origin, chain)`；先确认目标平台支持主动消息和对应消息段。
 - 富媒体使用 `astrbot.api.message_components`，不要假设所有平台支持 At、图片、语音、视频或转发。
+- 配置主动推送目标时，明确区分 `platform_id`（平台适配器实例 ID）、`message_type`（消息类型枚举值）和 `session_id`（会话 ID）。`unified_msg_origin` 是三者组成的完整会话来源，不应填入单个字段。
+- 平台富媒体发送的超时、拒绝或传输失败必须按“请求确认失败”记录；某些适配器可能已经接受或最终送达。不要在没有幂等或去重机制时自动重试，以免重复发送。
 
 ## 验证
 
-至少测试命令参数为空、权限失败、重复事件、事件停止传播和目标平台不支持消息段的情况。平台专属逻辑要先检查 `event.get_platform_name()` 或声明 `support_platforms`。
+至少测试命令参数为空、权限失败、重复事件、事件停止传播、主动消息目标字段映射和目标平台不支持消息段的情况。平台专属逻辑要先检查 `event.get_platform_name()` 或声明 `support_platforms`。对富媒体还要分别记录“生成成功”“适配器调用返回”“平台最终送达”三个状态，避免把适配器超时直接等同于未送达。
 
 参考：[事件指南](https://docs.astrbot.app/dev/star/guides/listen-message-event.html)、[发送消息](https://docs.astrbot.app/dev/star/guides/send-message.html)。

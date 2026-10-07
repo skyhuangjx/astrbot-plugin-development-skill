@@ -22,6 +22,7 @@ description: Develop, review, package, or maintain AstrBot plugins using current
 | WebUI 页面或插件后端 API | `references/webui.md` |
 | 国际化或插件随附 Skill | `references/i18n-skills.md` |
 | 市场发布、打包或市场源 | `references/market-release.md` |
+| 版本兼容、导入、WebUI 发现和运行验证 | `references/compatibility-validation.md` |
 
 如果已经确认目标版本、所需 API、兼容边界和最小验证路径，就停止搜索无关文档和源码。
 
@@ -41,6 +42,8 @@ packaging/release
 - 任务是新建、修改、审查、打包还是发布。
 - 是否已有插件仓库、未提交改动和用户配置。
 - 是否需要真实 AstrBot 运行验证。
+
+如果任务涉及 WebUI、目标平台或插件发布，必须把目标 AstrBot 版本和实际运行环境作为验证对象；不能只依据最新版文档或静态文件检查作出兼容结论。
 
 缺少信息时做最小、明确的假设，并把假设写进交付报告。不要自动扩大到 GitHub 推送、Release 或市场提交。
 
@@ -106,6 +109,7 @@ plugin-root/
 - 涉及重载时的注册、任务、会话和补丁清理。
 - 涉及流式响应时的首 chunk、最终响应、错误和中途取消。
 - 涉及 WebUI、文件、命令或外部网络时的输入边界和路径安全。
+- 涉及目标版本兼容时，验证插件实际导入、WebUI 入口发现、bridge/API 调用和目标平台消息段发送；分别记录代码生成、适配器确认和最终送达状态。
 - 涉及发布时的市场身份、包根目录、依赖文件和压缩包大小检查。
 
 不要为了测试覆盖无关模块，也不要重置或覆盖用户已有配置。

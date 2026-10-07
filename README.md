@@ -31,7 +31,8 @@ astrbot-plugin-development-skill/
     ├── interactive-session.md
     ├── webui.md
     ├── i18n-skills.md
-    └── market-release.md
+    ├── market-release.md
+    └── compatibility-validation.md
 ```
 
 ## 在 Codex 中使用
